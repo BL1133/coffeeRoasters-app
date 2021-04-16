@@ -1,0 +1,27 @@
+.footer {
+  background-color: $color-primary-dark-gray-blue;
+  margin-bottom: 8.8rem;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    height: 120px;
+
+    & > .navigation-list {
+      margin-left: 10.3rem;
+    }
+  }
+  &__logo {
+    align-self: center;
+    transform: translateY(-3px);
+  }
+}
+
+.social {
+  justify-self: right;
+  margin-left: auto;
+
+  & > *:not(:last-child) {
+    margin-right: 2.4rem;
+  }
+}

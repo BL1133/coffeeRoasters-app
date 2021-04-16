@@ -1,0 +1,147 @@
+// Hero section
+.hero-container {
+  background: url(../../src/assets/home/desktop/image-hero-coffeepress.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+.hero {
+  height: 100%;
+  padding-top: 13rem;
+
+  & > .heading-primary {
+    width: 50%;
+    margin-bottom: 3.2rem;
+  }
+  & > .text-light {
+    width: 36%;
+    margin-bottom: 7rem;
+  }
+}
+// Products
+.products-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > .heading-large {
+    padding: 2rem;
+    background: linear-gradient(
+      to top,
+      rgba(241, 239, 236, 0.7),
+      rgba(208, 208, 208, 1)
+    );
+    white-space: nowrap;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    // color: grey; //$color-light-cream-1
+  }
+}
+.product-container {
+  display: flex;
+  transform: translateY(-15px);
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__img {
+    transform: translateX(10px);
+    margin-bottom: 7.2rem;
+    width: 234px;
+    height: 177px;
+  }
+  & > .heading-quaternary {
+    text-align: center;
+    margin-bottom: 2.4rem;
+  }
+  & > .text-dark {
+    text-align: center;
+    width: 90%;
+  }
+}
+
+// Features section
+.features {
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 57.7rem;
+    padding-top: 10rem;
+    background: url(../../src/assets/about/desktop/bg-quality.png);
+    background-size: cover;
+    background-color: $color-primary-dark-gray-blue;
+
+    & > .heading-secondary {
+      margin-bottom: 3.2rem;
+    }
+    & > .text-light {
+      text-align: center;
+      width: 50%;
+    }
+  }
+  &__card-container {
+    transform: translateY(-60%);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-primary-cyan;
+  height: 38rem;
+
+  & > img {
+    margin-bottom: 5.6rem;
+  }
+
+  & > .text-light {
+    margin-top: 2.4rem;
+    text-align: center;
+    width: 70%;
+  }
+}
+// Process section
+.process {
+  & > .heading-quaternary {
+    color: $color-gray-red !important;
+    margin-bottom: 8rem;
+  }
+
+  &__items {
+    margin-bottom: 8rem;
+  }
+  &__items > *:not(:last-child) {
+    border-top: 2px solid $color-orange;
+  }
+}
+.process-item {
+  position: relative;
+  padding-top: 6.7rem;
+  margin-right: -40px;
+  & > .heading-primary {
+    margin-bottom: 3.8rem;
+  }
+  & > .heading-secondary {
+    margin-bottom: 4.2rem;
+  }
+  & > .text-dark {
+    width: 75%;
+  }
+  &::after {
+    content: '';
+    top: 0;
+    width: 31px;
+    height: 31px;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid $color-primary-dark-gray-blue;
+    position: absolute;
+    transform: translateY(-50%);
+  }
+}

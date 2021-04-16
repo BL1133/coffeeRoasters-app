@@ -1,0 +1,7 @@
+.navigation-list {
+  display: flex;
+
+  & > *:not(:last-child) {
+    margin-right: 3.2rem;
+  }
+}
