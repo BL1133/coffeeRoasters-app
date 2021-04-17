@@ -1,3 +1,7 @@
+import { Link } from 'react-router-dom';
+import Facebook from '../assets/shared/desktop/icon-facebook.svg';
+import Twitter from '../assets/shared/desktop/icon-twitter.svg';
+import Instagram from '../assets/shared/desktop/icon-instagram.svg';
 const Footer = () => (
   <footer className="footer u-margin-left-right-s">
     <div className="footer__container u-margin-left-right-s">
@@ -20,19 +24,19 @@ const Footer = () => (
       </svg>
       <ul className="navigation-list">
         <li className="navigation-list__item heading-navigation">
-          <a href="/index.html">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li className="navigation-list__item heading-navigation">
-          <a href="/about.html">About Us</a>
+          <Link to="/about">About Us</Link>
         </li>
         <li className="navigation-list__item heading-navigation">
-          <a href="/plan.html">Create your plan</a>
+          <Link to="/plan">Create your plan</Link>
         </li>
       </ul>
       <div className="social">
-        <img src="./assets/shared/desktop/icon-facebook.svg" alt="" />
-        <img src="./assets/shared/desktop/icon-twitter.svg" alt="" />
-        <img src="./assets/shared/desktop/icon-instagram.svg" alt="" />
+        <img src={Facebook} alt="Facebook" />
+        <img src={Twitter} alt="Twitter" />
+        <img src={Instagram} alt="Instagram" />
       </div>
     </div>
   </footer>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 const Header = () => (
   <header className="header u-margin-top u-margin-left-right-s">
     <svg
@@ -19,13 +20,13 @@ const Header = () => (
     </svg>
     <ul className="navigation-list">
       <li className="navigation-list__item heading-navigation">
-        <a href="/index.html">Home</a>
+        <Link to="/">Home</Link>
       </li>
       <li className="navigation-list__item heading-navigation">
-        <a href="/about.html">About Us</a>
+        <Link to="/about">About Us</Link>
       </li>
       <li className="navigation-list__item heading-navigation">
-        <a href="/plan.html">Create your plan</a>
+        <Link to="/plan">Create your plan</Link>
       </li>
     </ul>
   </header>
