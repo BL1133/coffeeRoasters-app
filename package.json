@@ -36,8 +36,10 @@
     ]
   },
   "devDependencies": {
+    "immer": "^9.0.1",
     "node-sass": "^5.0.0",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "use-immer": "^0.5.1"
   }
 }
