@@ -1,39 +1,44 @@
 import Question from './Question';
-import React from 'react';
-import data from '../data';
-import { useImmer } from 'use-immer';
+import React, { useContext } from 'react';
+import { StateContext } from './Plan';
+import { DispatchContext } from './Plan';
 
 function Form(props) {
-  const [state, setState] = useImmer(data);
+  const appState = useContext(StateContext);
+  const appDispatch = useContext(DispatchContext);
 
   function handleChange(e) {
     const questionName = e.target.name;
     const radioName = e.target.value;
-    const questionIndex = state.findIndex(
+    const questionIndex = appState.data.findIndex(
       (question) => question.name === questionName
     );
-    const optionIndex = state[questionIndex].options.findIndex(
+    const optionIndex = appState.data[questionIndex].options.findIndex(
       (option) => option.radioName === radioName
     );
-    const selectedIndex = state[questionIndex].options.findIndex(
+    const selectedIndex = appState.data[questionIndex].options.findIndex(
       (option) => option.selected === true
     );
-
-    setState((draft) => {
-      draft[questionIndex].options[selectedIndex].selected = false;
-      draft[questionIndex].options[optionIndex].selected = true;
+    appDispatch({
+      type: 'selected',
+      value: {
+        selectedIndex: selectedIndex,
+        questionIndex: questionIndex,
+        optionIndex: optionIndex,
+      },
     });
+    appDispatch({ type: 'sumArray' });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(state);
+    // console.log(appState.data);
   }
 
   return (
     <div className="plan-container u-margin-left-right-m">
       <form onSubmit={handleSubmit}>
-        {state.map((question) => (
+        {appState.data.map((question) => (
           <Question
             key={question.name}
             title={question.title}
