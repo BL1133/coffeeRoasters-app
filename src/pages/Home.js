@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import granEspresso from '../assets/home/desktop/image-gran-espresso.png';
 import piccollo from '../assets/home/desktop/image-piccollo.png';
 import planalto from '../assets/home/desktop/image-planalto.png';
@@ -6,6 +5,9 @@ import coffeeBean from '../assets/home/desktop/icon-coffee-bean.svg';
 import danche from '../assets/home/desktop/image-danche.png';
 import iconGift from '../assets/home/desktop/icon-gift.svg';
 import iconTruck from '../assets/home/desktop/icon-truck.svg';
+import { Link } from 'react-router-dom';
+import Process from '../components/Process';
+
 const Home = () => (
   <main>
     {/* Hero Section --> */}
@@ -110,53 +112,10 @@ const Home = () => (
         </div>
       </div>
     </section>
-    {/* process section --> */}
-    <section className="process u-margin-bottom-m u-margin-left-right-m">
-      <h3 className="heading-quaternary">How it works</h3>
-      <div className="process__items grid-3">
-        <div className="process-item">
-          <h1 className="heading-primary heading-primary--orange">01</h1>
-          <h2 className="heading-secondary heading-secondary--dark">
-            Pick your
-            <br />
-            coffee
-          </h2>
-          <p className="text-dark">
-            Pick your coffee Select from our evolving range of artisan coffees.
-            Our beans are ethically sourced and we pay fair prices for them.
-            There are new coffees in all profiles every month for you to try
-            out.
-          </p>
-        </div>
-        <div className="process-item">
-          <h1 className="heading-primary heading-primary--orange">02</h1>
-          <h2 className="heading-secondary heading-secondary--dark">
-            Choose the <br />
-            frequency
-          </h2>
-          <p className="text-dark">
-            Choose the frequency Customize your order frequency, quantity, even
-            your roast style and grind type. Pause, skip or cancel your
-            subscription with no commitment through our online portal.
-          </p>
-        </div>
-        <div className="process-item">
-          <h1 className="heading-primary heading-primary--orange">03</h1>
-          <h2 className="heading-secondary heading-secondary--dark">
-            Receive and <br />
-            enjoy!
-          </h2>
-          <p className="text-dark">
-            Receive and enjoy! We ship your package within 48 hours, freshly
-            roasted. Sit back and enjoy award-winning world-className coffees
-            curated to provide a distinct tasting experience.
-          </p>
-        </div>
-      </div>
-      <Link to="#" className="btn-plan">
-        Create your plan
-      </Link>
-    </section>
+    <div className="process__header">
+      <h3 className="heading-quaternary u-margin-left-right-m">How it works</h3>
+    </div>
+    <Process home={true} />
   </main>
 );
 

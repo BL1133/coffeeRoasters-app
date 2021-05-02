@@ -38,3 +38,32 @@ ORDER: Base + typography > general layout + grid > page layout > components
     } //1800
   }
 }
+
+@mixin processCircle($theme) {
+  @if $theme == light {
+    &::after {
+      content: '';
+      top: 0;
+      width: 31px;
+      height: 31px;
+      background: $color-light-cream-1;
+      border-radius: 50%;
+      border: 2px solid $color-primary-dark-gray-blue;
+      position: absolute;
+      transform: translateY(-50%);
+    }
+  }
+  @if $theme == dark {
+    &::after {
+      content: '';
+      top: 0;
+      width: 31px;
+      height: 31px;
+      background: transparent;
+      border-radius: 50%;
+      border: 2px solid $color-primary-cyan;
+      position: absolute;
+      transform: translateY(-50%);
+    }
+  }
+}

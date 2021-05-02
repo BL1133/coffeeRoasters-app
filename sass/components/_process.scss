@@ -1,0 +1,43 @@
+.process {
+  &__container {
+    padding-top: 10rem;
+  }
+  &__items {
+    padding-bottom: 8rem;
+  }
+  &__items > *:not(:last-child) {
+    border-top: 2px solid $color-orange;
+  }
+  &__header {
+    .heading-quaternary {
+      color: $color-gray-red !important;
+      margin-bottom: 8rem;
+    }
+  }
+}
+.process-item {
+  position: relative;
+  padding-top: 6.7rem;
+  margin-right: -56px;
+
+  & > .heading-primary {
+    margin-bottom: 3.8rem;
+  }
+  & > .heading-secondary {
+    margin-bottom: 4.2rem;
+  }
+  & > .text-dark,
+  .text-light {
+    width: 75%;
+  }
+  @include processCircle(light);
+
+  &--dark {
+    @include processCircle(dark);
+  }
+}
+.bg-dark {
+  background: url(../../src/assets/about/desktop/bg-quality.png);
+  background-size: cover;
+  background-color: $color-primary-dark-gray-blue;
+}

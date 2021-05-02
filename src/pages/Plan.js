@@ -2,8 +2,9 @@ import { useImmerReducer } from 'use-immer';
 import React, { createContext } from 'react';
 
 import questions from '../data';
-import Form from './Form';
-import Summary from './Summary';
+import Form from '../components/Form';
+import Summary from '../components/Summary';
+import Process from '../components/Process';
 
 export const StateContext = createContext();
 export const DispatchContext = createContext();
@@ -43,6 +44,19 @@ function Plan() {
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
+        <main>
+          <section className="hero-plan u-margin-bottom-m-2 u-margin-left-right-s">
+            <div className="hero-plan__container u-margin-left-right-s">
+              <h2 className="heading-secondary">Create plan</h2>
+              <p className="text-light">
+                Coffee the way you wanted it to be. For coffee delivered
+                tomorrow, or next week. For whatever brew method you use. For
+                choice, for convenience, for quality.
+              </p>
+            </div>
+          </section>
+        </main>
+        <Process home={false} />
         <Form />
         <Summary />
       </DispatchContext.Provider>

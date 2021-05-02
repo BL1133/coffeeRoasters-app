@@ -1,7 +1,7 @@
 import Question from './Question';
 import React, { useContext } from 'react';
-import { StateContext } from './Plan';
-import { DispatchContext } from './Plan';
+import { StateContext } from '../pages/Plan';
+import { DispatchContext } from '../pages/Plan';
 
 function Form(props) {
   const appState = useContext(StateContext);
@@ -27,7 +27,6 @@ function Form(props) {
         optionIndex: optionIndex,
       },
     });
-    appDispatch({ type: 'sumArray' });
   }
 
   function handleSubmit(e) {

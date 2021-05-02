@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StateContext } from './Plan';
+import { StateContext } from '../pages/Plan';
 
 function Summary() {
   const appState = useContext(StateContext);

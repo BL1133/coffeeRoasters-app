@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
-import Plan from './components/Plan';
+import Plan from './pages/Plan';
 import './App.scss';
 
 function App() {
