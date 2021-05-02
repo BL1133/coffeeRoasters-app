@@ -45,13 +45,13 @@ function Plan() {
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
         <main>
-          <section className="hero-plan u-margin-bottom-m-2 u-margin-left-right-s">
+          <section className="hero-plan u-border-radius u-margin-bottom-m-2 u-margin-left-right-s">
             <div className="hero-plan__container u-margin-left-right-s">
-              <h2 className="heading-secondary">Create plan</h2>
+              <h2 className="heading-primary">Create plan</h2>
               <p className="text-light">
-                Coffee the way you wanted it to be. For coffee delivered
-                tomorrow, or next week. For whatever brew method you use. For
-                choice, for convenience, for quality.
+                Build a subscription plan that best fits your needs. We offer an
+                assortment of the best artisan coffees from around the globe
+                delivered fresh to your door.
               </p>
             </div>
           </section>

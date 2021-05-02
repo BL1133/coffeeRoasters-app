@@ -13,6 +13,7 @@ const Process = ({ home }) => (
             home === false ? 'process-item--dark' : null
           }`}
         >
+          <hr className="process__line" />
           <h1 className="heading-primary heading-primary--orange">01</h1>
           <h2
             className={`heading-secondary ${
@@ -37,6 +38,7 @@ const Process = ({ home }) => (
             home === false ? 'process-item--dark' : null
           }`}
         >
+          <hr className="process__line" />
           <h1 className="heading-primary heading-primary--orange">02</h1>
           <h2
             className={`heading-secondary ${
