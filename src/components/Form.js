@@ -35,7 +35,7 @@ function Form(props) {
   }
 
   return (
-    <div className="plan-container u-margin-left-right-m">
+    <div className="form-container u-margin-left-right-m">
       <form onSubmit={handleSubmit}>
         {appState.data.map((question) => (
           <Question

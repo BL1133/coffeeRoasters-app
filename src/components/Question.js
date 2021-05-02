@@ -1,8 +1,8 @@
 function Question(props) {
   return (
-    <div>
-      <h1>{props.title}</h1>
-      <div>
+    <div className="form-question">
+      <h1 className="heading-secondary">{props.title}</h1>
+      <div className="input-container">
         {props.options.map((option) => (
           <div key={option.radioName} className="form-check">
             <label>
@@ -12,10 +12,11 @@ function Question(props) {
                 value={option.radioName}
                 onChange={props.handleChange}
                 checked={!!option.selected}
-                className="form-check-input"
+                className="base-input"
               />
-              <h3>{option.title}</h3>
-              <p>{option.info}</p>
+              <span className="form-check-input"></span>
+              <h3 className="heading-quaternary">{option.title}</h3>
+              <p className="text-dark">{option.info}</p>
             </label>
           </div>
         ))}
