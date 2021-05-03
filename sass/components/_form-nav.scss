@@ -1,0 +1,25 @@
+.form-nav-container {
+  margin-right: 12.5rem;
+}
+.form-nav {
+  &__item {
+    display: flex;
+    padding-bottom: 2.4rem;
+    margin-bottom: 2.4rem;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #dfdedd;
+    }
+
+    .heading-quaternary {
+      white-space: nowrap;
+    }
+  }
+  &__number {
+    color: #cdcecd !important;
+    margin-right: 2.45rem;
+  }
+  &__title {
+    color: #adafb2 !important;
+  }
+}

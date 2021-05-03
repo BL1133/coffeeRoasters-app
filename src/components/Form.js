@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { StateContext } from '../pages/Plan';
 import { DispatchContext } from '../pages/Plan';
 import Summary from '../components/Summary';
+import FormNav from '../components/FormNav';
 
 function Form(props) {
   const appState = useContext(StateContext);
@@ -37,23 +38,26 @@ function Form(props) {
 
   return (
     <div className="form-container u-margin-left-right-m u-margin-bottom-m-2">
-      <form onSubmit={handleSubmit}>
-        {appState.data.map((question) => (
-          <Question
-            key={question.name}
-            title={question.title}
-            options={question.options}
-            question={question.name}
-            handleChange={handleChange}
-          />
-        ))}
-        <div className="form-group">
-          <Summary />
-          <button className="btn-form btn-plan" type="submit">
-            Create my plan!
-          </button>
-        </div>
-      </form>
+      <div className="form-columns">
+        <FormNav />
+        <form onSubmit={handleSubmit}>
+          {appState.data.map((question) => (
+            <Question
+              key={question.name}
+              title={question.title}
+              options={question.options}
+              question={question.name}
+              handleChange={handleChange}
+            />
+          ))}
+          <div className="form-group">
+            <Summary />
+            <button className="btn-form btn-plan" type="submit">
+              Create my plan!
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

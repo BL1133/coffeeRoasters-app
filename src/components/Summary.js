@@ -14,7 +14,7 @@ function Summary() {
             {appState.sum[0] === 'Capsule' ? 'Capsules' : appState.sum[0]}
           </span>
           , with a <span>{appState.sum[1]}</span> type of bean.{' '}
-          <span>{appState.sum[2]},</span>
+          <span>{appState.sum[2]}, </span>
           sent to me <span>{appState.sum[4]}</span>"
         </p>
       </div>

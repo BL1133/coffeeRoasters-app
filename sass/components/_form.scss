@@ -1,6 +1,9 @@
 .form-container {
   position: relative;
 }
+.form-columns {
+  display: flex;
+}
 .form-question {
   .heading-secondary {
     margin-bottom: 5.6rem;
