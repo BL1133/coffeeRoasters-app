@@ -71,9 +71,8 @@
     align-items: center;
     height: 57.7rem;
     padding-top: 10rem;
-    background: url(../../src/assets/about/desktop/bg-quality.png);
-    background-size: cover;
-    background-color: $color-primary-dark-gray-blue;
+
+    @include bgDark;
 
     & > .heading-secondary {
       margin-bottom: 3.2rem;

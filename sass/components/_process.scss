@@ -44,7 +44,5 @@
   }
 }
 .bg-dark {
-  background: url(../../src/assets/about/desktop/bg-quality.png);
-  background-size: cover;
-  background-color: $color-primary-dark-gray-blue;
+  @include bgDark;
 }

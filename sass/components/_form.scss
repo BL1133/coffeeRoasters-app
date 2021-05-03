@@ -1,5 +1,5 @@
 .form-container {
-  height: 100vh; //temporary
+  position: relative;
 }
 .form-question {
   .heading-secondary {
@@ -58,4 +58,14 @@
   &:checked ~ .text-dark {
     color: white;
   }
+}
+.btn-form {
+  position: absolute;
+  right: 0;
+  width: 217px !important;
+  height: 56px !important;
+  font-size: 1.8rem !important;
+  font-family: 'Fraunces', serif !important;
+  font-weight: 900 !important;
+  color: $color-light-cream-1 !important;
 }

@@ -2,6 +2,7 @@ import Question from './Question';
 import React, { useContext } from 'react';
 import { StateContext } from '../pages/Plan';
 import { DispatchContext } from '../pages/Plan';
+import Summary from '../components/Summary';
 
 function Form(props) {
   const appState = useContext(StateContext);
@@ -35,7 +36,7 @@ function Form(props) {
   }
 
   return (
-    <div className="form-container u-margin-left-right-m">
+    <div className="form-container u-margin-left-right-m u-margin-bottom-m-2">
       <form onSubmit={handleSubmit}>
         {appState.data.map((question) => (
           <Question
@@ -47,8 +48,9 @@ function Form(props) {
           />
         ))}
         <div className="form-group">
-          <button className="btn btn-primary mt-2" type="submit">
-            Save
+          <Summary />
+          <button className="btn-form btn-plan" type="submit">
+            Create my plan!
           </button>
         </div>
       </form>

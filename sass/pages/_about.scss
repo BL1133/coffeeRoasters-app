@@ -34,9 +34,7 @@
 }
 // Quality section
 .quality {
-  background: url(../../src/assets/about/desktop/bg-quality.png);
-  background-size: cover;
-  background-color: $color-primary-dark-gray-blue;
+  @include bgDark;
 
   &__container {
     display: flex;

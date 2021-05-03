@@ -67,3 +67,8 @@ ORDER: Base + typography > general layout + grid > page layout > components
     }
   }
 }
+@mixin bgDark() {
+  background: url(../../src/assets/about/desktop/bg-quality.png);
+  background-size: cover;
+  background-color: $color-primary-dark-gray-blue;
+}

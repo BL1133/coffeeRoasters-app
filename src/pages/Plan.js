@@ -3,7 +3,6 @@ import React, { createContext } from 'react';
 
 import questions from '../data';
 import Form from '../components/Form';
-import Summary from '../components/Summary';
 import Process from '../components/Process';
 
 export const StateContext = createContext();
@@ -58,7 +57,6 @@ function Plan() {
         </main>
         <Process home={false} />
         <Form />
-        <Summary />
       </DispatchContext.Provider>
     </StateContext.Provider>
   );
