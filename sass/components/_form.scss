@@ -5,14 +5,30 @@
   display: flex;
 }
 .form-question {
+  margin-bottom: 8.8rem;
+
   .heading-secondary {
-    margin-bottom: 5.6rem;
+    white-space: nowrap;
     color: $color-light-gray;
   }
 }
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5.6rem;
+}
+.btn-accordion {
+  width: 2.5rem;
+  height: 1.5rem;
+  align-self: center;
+}
+.isRotated svg {
+  transform: rotate(180deg);
+}
 .input-container {
   display: flex;
-  margin-bottom: 8.8rem;
+  // margin-bottom: 8.8rem;
+  flex-grow: 1;
 
   & > *:not(:last-child) {
     margin-right: 2.3rem;

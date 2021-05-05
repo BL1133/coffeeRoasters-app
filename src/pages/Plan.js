@@ -18,6 +18,13 @@ function Plan() {
       3: '',
       4: '',
     },
+    showOptions: {
+      question1: false,
+      question2: false,
+      question3: false,
+      question4: false,
+      question5: false,
+    },
   };
   function ourReducer(draft, action) {
     switch (action.type) {
@@ -32,6 +39,10 @@ function Plan() {
         // add selection to sum object
         draft.sum[questionIndex] =
           draft.data[questionIndex].options[optionIndex].title;
+        return;
+      case 'showOptions':
+        const question = action.value;
+        draft.showOptions[question] = !draft.showOptions[question];
         return;
       default:
         return draft;
