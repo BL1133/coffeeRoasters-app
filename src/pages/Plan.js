@@ -18,7 +18,7 @@ function Plan() {
       3: '',
       4: '',
     },
-    showOptions: {
+    toggleOptions: {
       question1: false,
       question2: false,
       question3: false,
@@ -40,9 +40,14 @@ function Plan() {
         draft.sum[questionIndex] =
           draft.data[questionIndex].options[optionIndex].title;
         return;
-      case 'showOptions':
+      case 'toggleOptions':
         const question = action.value;
-        draft.showOptions[question] = !draft.showOptions[question];
+
+        if (action.value === 'capsuleSelected') {
+          draft.toggleOptions.question4 = false;
+        } else {
+          draft.toggleOptions[question] = !draft.toggleOptions[question];
+        }
         return;
       default:
         return draft;

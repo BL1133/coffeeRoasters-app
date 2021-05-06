@@ -1,27 +1,19 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { StateContext } from '../pages/Plan';
 import { DispatchContext } from '../pages/Plan';
 
 function Question(props) {
   const appState = useContext(StateContext);
   const appDispatch = useContext(DispatchContext);
-  const [showInfo, setShowInfo] = useState(false);
-  const [btnToggle, setButtonToggle] = useState(false);
+  const toggleOptions = appState.toggleOptions[props.question];
 
-  function questionDisable() {
-    if (props.question === 'question4' && appState.sum[0] === 'Capsule') {
-      return true;
-    } else return false;
+  if (props.question === 'question4' && appState.sum[0] === 'Capsule') {
+    appDispatch({ type: 'toggleOptions', value: 'capsuleSelected' });
   }
 
   function handleChange(e) {
-    setButtonToggle(!btnToggle);
-    if (questionDisable === true) {
-      return null;
-    } else {
-      setShowInfo(!showInfo);
-      appDispatch({ type: 'showOptions', value: e.target.value });
-    }
+    const questionName = e.currentTarget.value;
+    appDispatch({ type: 'toggleOptions', value: questionName });
   }
 
   return (
@@ -30,7 +22,7 @@ function Question(props) {
         <h1 className="heading-secondary">{props.title}</h1>
         <button
           value={props.question}
-          className={`btn-accordion ${btnToggle && 'isRotated'}`}
+          className={`btn-accordion ${toggleOptions && 'isRotated'}`}
           onClick={handleChange}
         >
           <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +34,7 @@ function Question(props) {
           </svg>
         </button>
       </div>
-      {showInfo ? (
+      {toggleOptions === true ? (
         <div className="input-container">
           {props.options.map((option) => (
             <div key={option.radioName} className="form-check">
