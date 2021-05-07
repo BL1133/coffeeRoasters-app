@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StateContext } from '../pages/Plan';
 import { DispatchContext } from '../pages/Plan';
 
@@ -7,9 +7,11 @@ function Question(props) {
   const appDispatch = useContext(DispatchContext);
   const toggleOptions = appState.toggleOptions[props.question];
 
-  if (props.question === 'question4' && appState.sum[0] === 'Capsule') {
-    appDispatch({ type: 'toggleOptions', value: 'capsuleSelected' });
-  }
+  useEffect(() => {
+    if (props.question === 'question4' && appState.sum[0] === 'Capsule') {
+      appDispatch({ type: 'toggleOptions', value: 'capsuleSelected' });
+    }
+  });
 
   function handleChange(e) {
     const questionName = e.currentTarget.value;
@@ -19,10 +21,22 @@ function Question(props) {
   return (
     <div className="form-question">
       <div className="title-container">
-        <h1 className="heading-secondary">{props.title}</h1>
+        <h1
+          className={`heading-secondary ${
+            appState.sum[0] === 'Capsule' && props.question === 'question4'
+              ? 'question-disabled'
+              : ''
+          }`}
+        >
+          {props.title}
+        </h1>
         <button
           value={props.question}
-          className={`btn-accordion ${toggleOptions && 'isRotated'}`}
+          className={`btn-accordion ${toggleOptions && 'isRotated'} ${
+            appState.sum[0] === 'Capsule' && props.question === 'question4'
+              ? 'btn-disabled'
+              : ''
+          }`}
           onClick={handleChange}
         >
           <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg">

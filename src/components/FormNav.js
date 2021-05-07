@@ -5,7 +5,7 @@ function FormNav() {
   const appState = useContext(StateContext);
 
   return (
-    <div className="form-nav-container">
+    <div className={`form-nav-container`}>
       <div className="form-nav__item">
         <p className="form-nav__number heading-quaternary">01</p>
         <p className="form-nav__title heading-quaternary">Preferences</p>
@@ -18,7 +18,11 @@ function FormNav() {
         <p className="form-nav__number heading-quaternary">03</p>
         <p className="form-nav__title heading-quaternary">Quantity</p>
       </div>
-      <div className="form-nav__item">
+      <div
+        className={`form-nav__item ${
+          appState.sum[0] === 'Capsule' ? 'form-question-disabled' : ''
+        }`}
+      >
         <p className="form-nav__number heading-quaternary">04</p>
         <p className="form-nav__title heading-quaternary">Grind Option</p>
       </div>

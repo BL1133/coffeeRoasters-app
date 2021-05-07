@@ -19,7 +19,7 @@ function Plan() {
       4: '',
     },
     toggleOptions: {
-      question1: false,
+      question1: true,
       question2: false,
       question3: false,
       question4: false,

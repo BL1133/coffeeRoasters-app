@@ -12,6 +12,12 @@
     color: $color-light-gray;
   }
 }
+.question-disabled {
+  color: $color-light-cream-2 !important;
+}
+.btn-disabled > svg path {
+  fill: $color-light-cream-2 !important;
+}
 .title-container {
   display: flex;
   justify-content: space-between;
