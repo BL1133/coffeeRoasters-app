@@ -29,6 +29,10 @@ function Form(props) {
         optionIndex: optionIndex,
       },
     });
+    appDispatch({
+      type: 'nextQuestion',
+      value: questionIndex,
+    });
   }
 
   function handleSubmit(e) {

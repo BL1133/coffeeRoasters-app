@@ -45,9 +45,24 @@ function Plan() {
 
         if (action.value === 'capsuleSelected') {
           draft.toggleOptions.question4 = false;
+          // Remove chosen grounded option if Capsule is selected
+          draft.sum[3] = '';
         } else {
           draft.toggleOptions[question] = !draft.toggleOptions[question];
         }
+        return;
+      case 'nextQuestion':
+        const index = action.value;
+        const nextQuestion = index + 1;
+        const questionNames = Object.keys(draft.toggleOptions);
+        const isCapsuleSelected = draft.data[0].options[0].selected;
+
+        if (isCapsuleSelected && index === 2) {
+          draft.toggleOptions.question5 = true;
+        } else {
+          draft.toggleOptions[questionNames[nextQuestion]] = true;
+        }
+
         return;
       default:
         return draft;
