@@ -37,7 +37,8 @@ function Form(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // console.log(appState.data);
+    console.log('submitted');
+    appDispatch({ type: 'submitted' });
   }
 
   return (
@@ -55,7 +56,12 @@ function Form(props) {
             />
           ))}
           <div className="form-group">
-            <Summary />
+            <div className="summary-bg u-border-radius">
+              <div className="summary-container">
+                <h5 className="summary-heading">Order Summary</h5>
+                <Summary isModal={false} />
+              </div>
+            </div>
             <button className="btn-form btn-plan" type="submit">
               Create my plan!
             </button>

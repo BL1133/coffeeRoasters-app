@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { StateContext } from '../pages/Plan';
 
-function Summary() {
+function Summary({ isModal }) {
   const appState = useContext(StateContext);
 
   function sumReducer(question) {
@@ -43,18 +43,13 @@ function Summary() {
     }
   }
   return (
-    <div className="summary-bg u-border-radius">
-      <div className="summary-container">
-        <h5 className="summary-heading">Order Summary</h5>
-        <p className="heading-quaternary">
-          "I drink my coffee {appState.sum[0] === 'Capsule' ? 'using ' : 'as '}
-          {sumReducer(1)}, with a {sumReducer(2)} type of bean. {sumReducer(3)}
-          {' , '}
-          {appState.sum[3] !== '' ? 'ground ala ' : null}
-          {sumReducer(4)} sent to me {sumReducer(5)}."
-        </p>
-      </div>
-    </div>
+    <p className={`heading-quaternary ${isModal ? 'submit-modal__p' : ''}`}>
+      "I drink my coffee {appState.sum[0] === 'Capsule' ? 'using ' : 'as '}
+      {sumReducer(1)}, with a {sumReducer(2)} type of bean. {sumReducer(3)}
+      {' , '}
+      {appState.sum[3] !== '' ? 'ground ala ' : null}
+      {sumReducer(4)} sent to me {sumReducer(5)}."
+    </p>
   );
 }
 

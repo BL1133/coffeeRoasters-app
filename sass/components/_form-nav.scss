@@ -11,16 +11,23 @@
       border-bottom: 1px solid #dfdedd;
     }
 
-    .heading-quaternary {
+    & > * {
       white-space: nowrap;
+      font-size: 2.4rem;
+      line-height: 3.2rem;
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+    }
+    &--highlighted > * {
+      color: $color-primary-dark-gray-blue !important;
     }
   }
   &__number {
-    color: #cdcecd !important;
+    color: #cdcecd;
     margin-right: 2.45rem;
   }
   &__title {
-    color: #adafb2 !important;
+    color: #adafb2;
   }
 }
 .form-question-disabled > * {

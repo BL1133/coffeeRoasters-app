@@ -4,6 +4,7 @@ import React, { createContext } from 'react';
 import questions from '../data';
 import Form from '../components/Form';
 import Process from '../components/Process';
+import SubmitModal from '../components/SubmitModal';
 
 export const StateContext = createContext();
 export const DispatchContext = createContext();
@@ -12,11 +13,11 @@ function Plan() {
   const initialState = {
     data: questions,
     sum: {
-      0: '',
-      1: '',
-      2: '',
-      3: '',
-      4: '',
+      0: 'Filter',
+      1: 'Single Origin',
+      2: '500g',
+      3: 'Filter',
+      4: 'Every Week',
     },
     toggleOptions: {
       question1: true,
@@ -25,6 +26,8 @@ function Plan() {
       question4: false,
       question5: false,
     },
+    currentQuestion: 0,
+    submitModal: false,
   };
   function ourReducer(draft, action) {
     switch (action.type) {
@@ -47,7 +50,7 @@ function Plan() {
           draft.toggleOptions.question4 = false;
           // Remove chosen grounded option if Capsule is selected
           draft.sum[3] = '';
-        } else {
+        } else if (draft.toggleOptions[question] !== true) {
           draft.toggleOptions[question] = !draft.toggleOptions[question];
         }
         return;
@@ -57,12 +60,23 @@ function Plan() {
         const questionNames = Object.keys(draft.toggleOptions);
         const isCapsuleSelected = draft.data[0].options[0].selected;
 
+        // toggle next question options, unless capsule is selected
         if (isCapsuleSelected && index === 2) {
           draft.toggleOptions.question5 = true;
         } else {
           draft.toggleOptions[questionNames[nextQuestion]] = true;
         }
 
+        if (index >= draft.currentQuestion && nextQuestion < 5) {
+          draft.currentQuestion = nextQuestion;
+        }
+
+        return;
+      case 'accordionOpened':
+        draft.currentQuestion = action.value;
+        return;
+      case 'submitted':
+        draft.submitModal = true;
         return;
       default:
         return draft;
@@ -88,6 +102,7 @@ function Plan() {
         </main>
         <Process home={false} />
         <Form />
+        <SubmitModal isOpen={state.submitModal} />
       </DispatchContext.Provider>
     </StateContext.Provider>
   );

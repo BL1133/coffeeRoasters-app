@@ -15,7 +15,11 @@ function Question(props) {
 
   function handleChange(e) {
     const questionName = e.currentTarget.value;
+    const questionIndex = appState.data.findIndex(
+      (question) => question.name === questionName
+    );
     appDispatch({ type: 'toggleOptions', value: questionName });
+    appDispatch({ type: 'accordionOpened', value: questionIndex });
   }
 
   return (
@@ -38,6 +42,7 @@ function Question(props) {
               : ''
           }`}
           onClick={handleChange}
+          type="button"
         >
           <svg width="19" height="13" xmlns="http://www.w3.org/2000/svg">
             <path
