@@ -54,10 +54,7 @@ function FormNav() {
       </div>
       <div
         className={`form-nav__item ${
-          appState.toggleOptions.question5 === true &&
-          appState.currentQuestion === 4
-            ? 'form-nav__item--highlighted'
-            : ''
+          appState.currentQuestion === 4 ? 'form-nav__item--highlighted' : ''
         }`}
       >
         <p className="form-nav__number">05</p>

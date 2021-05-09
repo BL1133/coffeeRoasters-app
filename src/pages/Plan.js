@@ -45,12 +45,18 @@ function Plan() {
         return;
       case 'toggleOptions':
         const question = action.value;
+        const capsuleSelected = draft.data[0].options[0].selected;
 
-        if (action.value === 'capsuleSelected') {
-          draft.toggleOptions.question4 = false;
+        if (action.value === 'capsuleSelected' && capsuleSelected) {
+          // Remove question4 selected options
           // Remove chosen grounded option if Capsule is selected
+          // Toggles question as long as it's not toggled already
+          draft.data[3].options[0].selected = false;
+          draft.data[3].options[1].selected = false;
+          draft.data[3].options[2].selected = false;
+          draft.toggleOptions.question4 = false;
           draft.sum[3] = '';
-        } else if (draft.toggleOptions[question] !== true) {
+        } else if (draft.toggleOptions[question] === false) {
           draft.toggleOptions[question] = !draft.toggleOptions[question];
         }
         return;
@@ -60,17 +66,24 @@ function Plan() {
         const questionNames = Object.keys(draft.toggleOptions);
         const isCapsuleSelected = draft.data[0].options[0].selected;
 
-        // toggle next question options, unless capsule is selected
-        if (isCapsuleSelected && index === 2) {
+        // toggle next question options, unless capsule is selected:
+        // When capsule is selected, question 4 is disabled, which prevents question 5 from being toggled
+        if ((isCapsuleSelected && index === 2) || draft.currentQuestion === 4) {
           draft.toggleOptions.question5 = true;
         } else {
           draft.toggleOptions[questionNames[nextQuestion]] = true;
         }
-
-        if (index >= draft.currentQuestion && nextQuestion < 5) {
+        // ************
+        // * This defines currentQuestion for FormNav.
+        // currentQuestion gets stuck at 2 or 3, and can't highlight 4, because of 3 being disabled. Skips right to 4.
+        if (
+          (isCapsuleSelected && draft.currentQuestion === 2) ||
+          (isCapsuleSelected && draft.currentQuestion === 3)
+        ) {
+          draft.currentQuestion = 4;
+        } else if (index >= draft.currentQuestion && nextQuestion < 5) {
           draft.currentQuestion = nextQuestion;
         }
-
         return;
       case 'accordionOpened':
         draft.currentQuestion = action.value;
@@ -82,8 +95,8 @@ function Plan() {
         return draft;
     }
   }
-
   const [state, dispatch] = useImmerReducer(ourReducer, initialState);
+  console.log(state.currentQuestion, state.data);
 
   return (
     <StateContext.Provider value={state}>

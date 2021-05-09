@@ -21,6 +21,7 @@ function Form(props) {
     const selectedIndex = appState.data[questionIndex].options.findIndex(
       (option) => option.selected === true
     );
+
     appDispatch({
       type: 'selected',
       value: {
