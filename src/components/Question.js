@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { StateContext } from '../pages/Plan';
 import { DispatchContext } from '../pages/Plan';
 
@@ -6,12 +6,6 @@ function Question(props) {
   const appState = useContext(StateContext);
   const appDispatch = useContext(DispatchContext);
   const toggleOptions = appState.toggleOptions[props.question];
-
-  useEffect(() => {
-    if (props.question === 'question4' && appState.sum[0] === 'Capsule') {
-      appDispatch({ type: 'toggleOptions', value: 'capsuleSelected' });
-    }
-  });
 
   function handleChange(e) {
     const questionName = e.currentTarget.value;

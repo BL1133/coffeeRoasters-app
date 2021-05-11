@@ -1,5 +1,5 @@
 import Question from './Question';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StateContext } from '../pages/Plan';
 import { DispatchContext } from '../pages/Plan';
 import Summary from '../components/Summary';
@@ -9,6 +9,18 @@ function Form(props) {
   const appState = useContext(StateContext);
   const appDispatch = useContext(DispatchContext);
 
+  useEffect(() => {
+    if (appState.sum[0] === 'Capsule') {
+      appDispatch({ type: 'toggleOptions', value: 'capsuleSelected' });
+    }
+    if (
+      appState.toggleOptions.question5 === true &&
+      appState.toggleOptions.question4 === false &&
+      appState.sum[0] !== 'Capsule'
+    ) {
+      appDispatch({ type: 'capsuleUnselected' });
+    }
+  });
   function handleChange(e) {
     const questionName = e.target.name;
     const radioName = e.target.value;
@@ -34,6 +46,9 @@ function Form(props) {
       type: 'nextQuestion',
       value: questionIndex,
     });
+    if (questionIndex === 2) {
+      appDispatch({ type: 'weightSelected', value: optionIndex });
+    }
   }
 
   function handleSubmit(e) {

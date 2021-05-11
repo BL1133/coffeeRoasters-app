@@ -43,7 +43,9 @@ function Summary({ isModal }) {
     }
   }
   return (
-    <p className={`heading-quaternary ${isModal ? 'submit-modal__p' : ''}`}>
+    <p
+      className={`heading-quaternary ${isModal ? 'submit-modal__summary' : ''}`}
+    >
       "I drink my coffee {appState.sum[0] === 'Capsule' ? 'using ' : 'as '}
       {sumReducer(1)}, with a {sumReducer(2)} type of bean. {sumReducer(3)}
       {' , '}

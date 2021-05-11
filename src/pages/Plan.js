@@ -60,6 +60,9 @@ function Plan() {
           draft.toggleOptions[question] = !draft.toggleOptions[question];
         }
         return;
+      case 'capsuleUnselected':
+        draft.toggleOptions.question4 = true;
+        return;
       case 'nextQuestion':
         const index = action.value;
         const nextQuestion = index + 1;
@@ -90,6 +93,33 @@ function Plan() {
         return;
       case 'submitted':
         draft.submitModal = true;
+        return;
+      case 'weightSelected':
+        const weightSelected = draft.data[2].options[action.value].title;
+
+        if (weightSelected === '250g') {
+          draft.data[4].options[0].info =
+            '$7.20 per shipment. Includes free first-class shipping.';
+          draft.data[4].options[1].info =
+            '$9.60 per shipment. Includes free priority shipping.';
+          draft.data[4].options[2].info =
+            '$12.00 per shipment. Includes free priority shipping.';
+        } else if (weightSelected === '500g') {
+          draft.data[4].options[0].info =
+            '$13.00 per shipment. Includes free first-class shipping.';
+          draft.data[4].options[1].info =
+            '$17.50 per shipment. Includes free priority shipping.';
+          draft.data[4].options[2].info =
+            '$22.00 per shipment. Includes free priority shipping.';
+        } else if (weightSelected === '1000g') {
+          draft.data[4].options[0].info =
+            '$22.00 per shipment. Includes free first-class shipping.';
+          draft.data[4].options[1].info =
+            '$32.00 per shipment. Includes free priority shipping.';
+          draft.data[4].options[2].info =
+            '$42.00 per shipment. Includes free priority shipping.';
+        }
+
         return;
       default:
         return draft;
