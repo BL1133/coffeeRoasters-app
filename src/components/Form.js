@@ -15,7 +15,6 @@ function Form(props) {
     }
     if (
       appState.toggleOptions.question5 === true &&
-      appState.toggleOptions.question4 === false &&
       appState.sum[0] !== 'Capsule'
     ) {
       appDispatch({ type: 'capsuleUnselected' });

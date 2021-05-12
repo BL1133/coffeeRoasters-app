@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Summary from '../components/Summary';
 import ReactModal from 'react-modal';
 import { Link } from 'react-router-dom';
+import { StateContext } from '../pages/Plan';
 
 function SubmitModal(props) {
+  const appState = useContext(StateContext);
+
   ReactModal.setAppElement('#root');
   return (
     <ReactModal
@@ -22,7 +25,7 @@ function SubmitModal(props) {
           redeemed at the checkout.
         </p>
         <div className="submit-modal__price-container">
-          <h3 className="heading-tertiary submit-modal-price">$28.80/ mo</h3>
+          <h3 className="heading-tertiary submit-modal-price">{}</h3>
           <Link to="#" className="btn-plan submit-modal-btn">
             Checkout
           </Link>

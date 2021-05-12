@@ -1,5 +1,6 @@
 import { useImmerReducer } from 'use-immer';
 import React, { createContext } from 'react';
+import numeral from 'numeral';
 
 import questions from '../data';
 import Form from '../components/Form';
@@ -19,12 +20,17 @@ function Plan() {
       3: 'Filter',
       4: 'Every Week',
     },
+    shipmentCost: {
+      '250g': { everyWeek: 7.2, every2Weeks: 9.6, everyMonth: 12.0 },
+      '500g': { everyWeek: 13.0, every2Weeks: 17.5, everyMonth: 22.0 },
+      '1000g': { everyWeek: 22.0, every2Weeks: 32.0, everyMonth: 42.0 },
+    },
     toggleOptions: {
       question1: true,
-      question2: false,
-      question3: false,
-      question4: false,
-      question5: false,
+      question2: true,
+      question3: true,
+      question4: true,
+      question5: true,
     },
     currentQuestion: 0,
     submitModal: false,
@@ -56,11 +62,13 @@ function Plan() {
           draft.data[3].options[2].selected = false;
           draft.toggleOptions.question4 = false;
           draft.sum[3] = '';
-        } else if (draft.toggleOptions[question] === false) {
+        }
+        if (draft.toggleOptions[question] === false) {
           draft.toggleOptions[question] = !draft.toggleOptions[question];
         }
         return;
       case 'capsuleUnselected':
+        // If Capsule is unselected after being selected, q4 will toggle again (only if question 5 is open. logic in Form.js)
         draft.toggleOptions.question4 = true;
         return;
       case 'nextQuestion':
@@ -84,7 +92,8 @@ function Plan() {
           (isCapsuleSelected && draft.currentQuestion === 3)
         ) {
           draft.currentQuestion = 4;
-        } else if (index >= draft.currentQuestion && nextQuestion < 5) {
+        }
+        if (index >= draft.currentQuestion && nextQuestion < 5) {
           draft.currentQuestion = nextQuestion;
         }
         return;
@@ -97,27 +106,60 @@ function Plan() {
       case 'weightSelected':
         const weightSelected = draft.data[2].options[action.value].title;
 
+        function shipmentCost(weight, frequency) {
+          const { everyWeek, every2Weeks, everyMonth } = draft.shipmentCost[
+            weight
+          ];
+          switch (frequency) {
+            case 'everyWeek':
+              return numeral(everyWeek).format('0.00');
+            case 'every2Weeks':
+              return numeral(every2Weeks).format('0.00');
+            case 'everyMonth':
+              return numeral(everyMonth).format('0.00');
+            default:
+              break;
+          }
+        }
         if (weightSelected === '250g') {
           draft.data[4].options[0].info =
-            '$7.20 per shipment. Includes free first-class shipping.';
+            '$' +
+            shipmentCost('250g', 'everyWeek') +
+            ' per shipment. Includes free first-class shipping.';
           draft.data[4].options[1].info =
-            '$9.60 per shipment. Includes free priority shipping.';
+            '$' +
+            shipmentCost('250g', 'every2Weeks') +
+            ' per shipment. Includes free priority shipping.';
           draft.data[4].options[2].info =
-            '$12.00 per shipment. Includes free priority shipping.';
+            '$' +
+            shipmentCost('250g', 'everyMonth') +
+            ' per shipment. Includes free priority shipping.';
         } else if (weightSelected === '500g') {
           draft.data[4].options[0].info =
-            '$13.00 per shipment. Includes free first-class shipping.';
+            '$' +
+            shipmentCost('500g', 'everyWeek') +
+            ' per shipment. Includes free first-class shipping.';
           draft.data[4].options[1].info =
-            '$17.50 per shipment. Includes free priority shipping.';
+            '$' +
+            shipmentCost('500g', 'every2Weeks') +
+            ' per shipment. Includes free priority shipping.';
           draft.data[4].options[2].info =
-            '$22.00 per shipment. Includes free priority shipping.';
+            '$' +
+            shipmentCost('500g', 'everyMonth') +
+            ' per shipment. Includes free priority shipping.';
         } else if (weightSelected === '1000g') {
           draft.data[4].options[0].info =
-            '$22.00 per shipment. Includes free first-class shipping.';
+            '$' +
+            shipmentCost('1000g', 'everyWeek') +
+            ' per shipment. Includes free first-class shipping.';
           draft.data[4].options[1].info =
-            '$32.00 per shipment. Includes free priority shipping.';
+            '$' +
+            shipmentCost('1000g', 'every2Weeks') +
+            ' per shipment. Includes free priority shipping.';
           draft.data[4].options[2].info =
-            '$42.00 per shipment. Includes free priority shipping.';
+            '$' +
+            shipmentCost('1000g', 'everyMonth') +
+            ' per shipment. Includes free priority shipping.';
         }
 
         return;
