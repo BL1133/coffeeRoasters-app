@@ -18,7 +18,7 @@ function Plan() {
       1: 'Single Origin',
       2: '500g',
       3: 'Filter',
-      4: 'Every Week',
+      4: 'Every week',
     },
     shipmentCost: {
       '250g': { everyWeek: 7.2, every2Weeks: 9.6, everyMonth: 12.0 },
