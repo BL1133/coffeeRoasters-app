@@ -14,11 +14,11 @@ function Plan() {
   const initialState = {
     data: questions,
     sum: {
-      0: 'Filter',
-      1: 'Single Origin',
-      2: '500g',
-      3: 'Filter',
-      4: 'Every week',
+      0: '',
+      1: '',
+      2: '',
+      3: '',
+      4: '',
     },
     shipmentCost: {
       '250g': { everyWeek: 7.2, every2Weeks: 9.6, everyMonth: 12.0 },
@@ -34,6 +34,7 @@ function Plan() {
     },
     currentQuestion: 0,
     submitModal: false,
+    capsuleSelected: false,
   };
   function ourReducer(draft, action) {
     switch (action.type) {
@@ -51,23 +52,26 @@ function Plan() {
         return;
       case 'toggleOptions':
         const question = action.value;
-        const capsuleSelected = draft.data[0].options[0].selected;
-
-        if (action.value === 'capsuleSelected' && capsuleSelected) {
-          // Remove question4 selected options
-          // Remove chosen grounded option if Capsule is selected
-          // Toggles question as long as it's not toggled already
-          draft.data[3].options[0].selected = false;
-          draft.data[3].options[1].selected = false;
-          draft.data[3].options[2].selected = false;
-          draft.toggleOptions.question4 = false;
-          draft.sum[3] = '';
-        }
         if (draft.toggleOptions[question] === false) {
           draft.toggleOptions[question] = !draft.toggleOptions[question];
         }
         return;
+      case 'capsuleSelected':
+        draft.capsuleSelected = true;
+        // Remove question4 selected options
+        // Remove chosen grounded option if Capsule is selected
+        // Toggles question as long as it's not toggled already
+        draft.data[3].options[0].selected = false;
+        draft.data[3].options[1].selected = false;
+        draft.data[3].options[2].selected = false;
+        draft.toggleOptions.question4 = false;
+        draft.sum[3] = '';
+
+        return;
       case 'capsuleUnselected':
+        draft.capsuleSelected = false;
+        return;
+      case 'toggleQuestion4':
         // If Capsule is unselected after being selected, q4 will toggle again (only if question 5 is open. logic in Form.js)
         draft.toggleOptions.question4 = true;
         return;
@@ -75,11 +79,13 @@ function Plan() {
         const index = action.value;
         const nextQuestion = index + 1;
         const questionNames = Object.keys(draft.toggleOptions);
-        const isCapsuleSelected = draft.data[0].options[0].selected;
 
         // toggle next question options, unless capsule is selected:
         // When capsule is selected, question 4 is disabled, which prevents question 5 from being toggled
-        if ((isCapsuleSelected && index === 2) || draft.currentQuestion === 4) {
+        if (
+          (draft.capsuleSelected && index === 2) ||
+          draft.currentQuestion === 4
+        ) {
           draft.toggleOptions.question5 = true;
         } else {
           draft.toggleOptions[questionNames[nextQuestion]] = true;
@@ -88,8 +94,8 @@ function Plan() {
         // * This defines currentQuestion for FormNav.
         // currentQuestion gets stuck at 2 or 3, and can't highlight 4, because of 3 being disabled. Skips right to 4.
         if (
-          (isCapsuleSelected && draft.currentQuestion === 2) ||
-          (isCapsuleSelected && draft.currentQuestion === 3)
+          (draft.capsuleSelected && draft.currentQuestion === 2) ||
+          (draft.capsuleSelected && draft.currentQuestion === 3)
         ) {
           draft.currentQuestion = 4;
         }
@@ -101,7 +107,23 @@ function Plan() {
         draft.currentQuestion = action.value;
         return;
       case 'submitted':
-        draft.submitModal = true;
+        const sumValues = () => {
+          if (draft.capsuleSelected) {
+            // remove question 4 from array if capsule selected
+            return Object.values(draft.sum).filter((value, idx) => {
+              return idx !== 3;
+            });
+          } else {
+            return Object.values(draft.sum);
+          }
+        };
+        const value = sumValues().findIndex((el) => el === '');
+
+        if (value === -1) {
+          draft.submitModal = true;
+        } else {
+          draft.submitModal = false;
+        }
         return;
       case 'weightSelected':
         const weightSelected = draft.data[2].options[action.value].title;
@@ -168,8 +190,7 @@ function Plan() {
     }
   }
   const [state, dispatch] = useImmerReducer(ourReducer, initialState);
-  console.log(state.currentQuestion, state.data);
-
+  // console.log(state.sum);
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>

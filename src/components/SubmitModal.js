@@ -55,7 +55,7 @@ function SubmitModal(props) {
         </p>
         <div className="submit-modal__price-container">
           <h3 className="heading-tertiary submit-modal-price">
-            {`$ ${costPerMonth()}/ mo`}
+            {`$ ${appState.submitModal ? costPerMonth() : null}/ mo`}
           </h3>
           <Link to="#" className="btn-plan submit-modal-btn">
             Checkout

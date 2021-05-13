@@ -11,15 +11,19 @@ function Form(props) {
 
   useEffect(() => {
     if (appState.sum[0] === 'Capsule') {
-      appDispatch({ type: 'toggleOptions', value: 'capsuleSelected' });
+      appDispatch({ type: 'capsuleSelected' });
+    }
+    if (appState.sum[0] !== 'Capsule') {
+      appDispatch({ type: 'capsuleUnselected' });
     }
     if (
       appState.toggleOptions.question5 === true &&
       appState.sum[0] !== 'Capsule'
     ) {
-      appDispatch({ type: 'capsuleUnselected' });
+      appDispatch({ type: 'toggleQuestion4' });
     }
   });
+
   function handleChange(e) {
     const questionName = e.target.name;
     const radioName = e.target.value;
@@ -52,7 +56,6 @@ function Form(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('submitted');
     appDispatch({ type: 'submitted' });
   }
 
