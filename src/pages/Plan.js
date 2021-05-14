@@ -118,20 +118,21 @@ function Plan() {
           }
         };
         const value = sumValues().findIndex((el) => el === '');
-
         if (value === -1) {
           draft.submitModal = true;
         } else {
           draft.submitModal = false;
         }
         return;
+      case 'modalClose':
+        draft.submitModal = false;
+        return;
       case 'weightSelected':
         const weightSelected = draft.data[2].options[action.value].title;
 
         function shipmentCost(weight, frequency) {
-          const { everyWeek, every2Weeks, everyMonth } = draft.shipmentCost[
-            weight
-          ];
+          const { everyWeek, every2Weeks, everyMonth } =
+            draft.shipmentCost[weight];
           switch (frequency) {
             case 'everyWeek':
               return numeral(everyWeek).format('0.00');
@@ -183,7 +184,6 @@ function Plan() {
             shipmentCost('1000g', 'everyMonth') +
             ' per shipment. Includes free priority shipping.';
         }
-
         return;
       default:
         return draft;

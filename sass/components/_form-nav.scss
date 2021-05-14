@@ -1,6 +1,5 @@
 .form-nav-container {
   margin-right: 12.5rem;
-  position: sticky;
 }
 .form-nav {
   &__item {
@@ -29,6 +28,10 @@
   }
   &__title {
     color: #adafb2;
+  }
+  &__sticky {
+    position: sticky;
+    top: 20rem;
   }
 }
 .form-question-disabled > * {

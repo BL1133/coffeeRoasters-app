@@ -4,9 +4,11 @@ import ReactModal from 'react-modal';
 import { Link } from 'react-router-dom';
 import numeral from 'numeral';
 import { StateContext } from '../pages/Plan';
+import { DispatchContext } from '../pages/Plan';
 
 function SubmitModal(props) {
   const appState = useContext(StateContext);
+  const appDispatch = useContext(DispatchContext);
 
   function costPerMonth() {
     const weight = appState.sum[2];
@@ -35,15 +37,19 @@ function SubmitModal(props) {
     }
   }
 
+  function handleClose() {
+    appDispatch({ type: 'modalClose' });
+  }
+
   ReactModal.setAppElement('#root');
   return (
     <ReactModal
-      isOpen={!!appState.submitModal}
+      isOpen={appState.submitModal === true}
       contentLabel={'Submit Modal'}
-      preventScroll={true}
       ariaHideApp={true}
       className={'submit-modal-content'}
       shouldCloseOnEsc={true}
+      onRequestClose={handleClose}
     >
       <h3 className="submit-modal__heading heading-tertiary">Order Summary</h3>
       <div className="submit-modal-content__container">

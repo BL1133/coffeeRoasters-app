@@ -13,7 +13,7 @@
   border-radius: 12px;
 
   &__container {
-    padding: 1px 5.6rem 5.6rem 5.6rem;
+    padding: 6.3rem 5.6rem 5.6rem 5.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,11 +27,13 @@
     padding-top: 4.8rem;
     padding-left: 5.8rem;
     padding-bottom: 4.8rem;
-    margin-bottom: 9.7rem;
     @include bgDark;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
   }
   &__summary {
     color: $color-light-gray !important;
+    line-height: 40px !important;
   }
   &__text {
     color: $color-primary-dark-gray-blue;
