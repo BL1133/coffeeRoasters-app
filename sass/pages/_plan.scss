@@ -2,6 +2,8 @@
 .hero-plan {
   height: 45rem;
   background-image: url(../../src/assets/plan/desktop/image-hero-blackcup.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 
   &__container {
     height: 100%;

@@ -16,11 +16,31 @@ function Form(props) {
     if (appState.sum[0] !== 'Capsule') {
       appDispatch({ type: 'capsuleUnselected' });
     }
+    // If capsule is unselected after being selected, toggle q4
     if (
       appState.toggleOptions.question5 === true &&
       appState.sum[0] !== 'Capsule'
     ) {
       appDispatch({ type: 'toggleQuestion4' });
+    }
+  });
+
+  useEffect(() => {
+    const sumValues = () => {
+      if (appState.capsuleSelected) {
+        // remove question 4 from array if capsule selected
+        return Object.values(appState.sum).filter((value, idx) => {
+          return idx !== 3;
+        });
+      } else {
+        return Object.values(appState.sum);
+      }
+    };
+    const value = sumValues().findIndex((el) => el === '');
+    if (value === -1) {
+      appDispatch({ type: 'formFinished', value: 'true' });
+    } else {
+      appDispatch({ type: 'formFinished', value: 'false' });
     }
   });
 
@@ -80,7 +100,14 @@ function Form(props) {
                 <Summary isModal={false} />
               </div>
             </div>
-            <button className="btn-form btn-plan" type="submit">
+            <button
+              className={`btn-form btn-plan ${
+                appState.formFinished
+                  ? 'btn-plan--complete'
+                  : 'btn-plan--incomplete'
+              }`}
+              type="submit"
+            >
               Create my plan!
             </button>
           </div>

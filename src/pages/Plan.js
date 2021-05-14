@@ -27,12 +27,13 @@ function Plan() {
     },
     toggleOptions: {
       question1: true,
-      question2: true,
-      question3: true,
-      question4: true,
-      question5: true,
+      question2: false,
+      question3: false,
+      question4: false,
+      question5: false,
     },
     currentQuestion: 0,
+    formFinished: false,
     submitModal: false,
     capsuleSelected: false,
   };
@@ -106,22 +107,16 @@ function Plan() {
       case 'accordionOpened':
         draft.currentQuestion = action.value;
         return;
-      case 'submitted':
-        const sumValues = () => {
-          if (draft.capsuleSelected) {
-            // remove question 4 from array if capsule selected
-            return Object.values(draft.sum).filter((value, idx) => {
-              return idx !== 3;
-            });
-          } else {
-            return Object.values(draft.sum);
-          }
-        };
-        const value = sumValues().findIndex((el) => el === '');
-        if (value === -1) {
-          draft.submitModal = true;
+      case 'formFinished':
+        if (action.value === 'true') {
+          draft.formFinished = true;
         } else {
-          draft.submitModal = false;
+          draft.formFinished = false;
+        }
+        return;
+      case 'submitted':
+        if (draft.formFinished) {
+          draft.submitModal = true;
         }
         return;
       case 'modalClose':
