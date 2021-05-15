@@ -22,13 +22,19 @@ const Footer = () => (
       </svg>
       <ul className="navigation-list">
         <li className="navigation-list__item heading-navigation footer-navigation">
-          <Link to="/">Home</Link>
+          <Link className="footer-navigation__link" to="/">
+            Home
+          </Link>
         </li>
         <li className="navigation-list__item heading-navigation footer-navigation">
-          <Link to="/about">About Us</Link>
+          <Link className="footer-navigation__link" to="/about">
+            About Us
+          </Link>
         </li>
         <li className="navigation-list__item heading-navigation footer-navigation">
-          <Link to="/plan">Create your plan</Link>
+          <Link className="footer-navigation__link" to="/plan">
+            Create your plan
+          </Link>
         </li>
       </ul>
       <div className="social">

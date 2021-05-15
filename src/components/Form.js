@@ -101,10 +101,10 @@ function Form(props) {
               </div>
             </div>
             <button
-              className={`btn-form btn-plan ${
+              className={` ${
                 appState.formFinished
-                  ? 'btn-plan--complete'
-                  : 'btn-plan--incomplete'
+                  ? 'btn-form'
+                  : 'btn-form btn-form--incomplete'
               }`}
               type="submit"
             >

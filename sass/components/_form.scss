@@ -89,12 +89,21 @@
   }
 }
 .btn-form {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem;
+  color: $color-light-cream-1;
+  padding: 1.5rem 3rem 1.5rem 3rem;
+  border-radius: 5px;
+  border-style: hidden;
+  cursor: pointer;
   position: absolute;
   right: 0;
-  width: 217px !important;
-  height: 56px !important;
-  font-size: 1.8rem !important;
-  font-family: 'Fraunces', serif !important;
-  font-weight: 900 !important;
-  color: $color-light-cream-1 !important;
+  width: 217px;
+  height: 56px;
+  font-weight: 900;
+  background-color: $color-primary-cyan;
+
+  &--incomplete {
+    background-color: $color-light-cream-2;
+  }
 }

@@ -4,6 +4,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 600px;
+
+  @include respond(tab-port) {
+    background-position: center;
+    height: 400px;
+  }
 }
 .hero {
   height: 100%;
@@ -12,13 +17,27 @@
   & > .heading-primary {
     width: 50%;
     margin-bottom: 3.2rem;
+    white-space: nowrap;
+
+    @include respond(tab-port) {
+      font-size: 4.8rem;
+      line-height: 48px;
+      margin-bottom: 2.4rem;
+    }
   }
   & > .text-light {
     width: 36%;
     margin-bottom: 7rem;
+    @include respond(tab-port) {
+      width: 60%;
+      margin-bottom: 4rem;
+    }
+  }
+  @include respond(tab-port) {
+    padding-top: 10.4rem;
   }
 }
-.hero-btn {
+.home-btn {
   background-color: $color-primary-cyan;
 
   &:hover {
@@ -42,31 +61,86 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    // color: grey; //$color-light-cream-1
+    @include respond(tab-port) {
+      font-size: 9.6rem;
+    }
+
+    @include respond(phone) {
+      font-size: 6rem;
+    }
   }
 }
 .product-container {
   display: flex;
   transform: translateY(-15px);
+
+  @include respond(tab-port) {
+    flex-direction: column;
+    transform: translateY(-30px);
+  }
+  @include respond(phone) {
+    transform: initial;
+  }
 }
 .product {
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  @include respond(tab-port) {
+    flex-direction: initial;
+    margin-bottom: 3.2rem;
+  }
+  @include respond(phone) {
+    flex-direction: column;
+  }
+
+  &__text {
+    @include respond(tab-port) {
+      width: 28.2rem;
+      transform: translateY(-2rem);
+    }
+    & > .heading-quaternary {
+      text-align: center;
+
+      @include respond(tab-port) {
+        text-align: initial;
+        margin-bottom: 2.4rem;
+      }
+      @include respond(phone) {
+        text-align: center;
+      }
+    }
+    & > .text-dark {
+      text-align: center;
+      width: 90%;
+
+      @include respond(tab-port) {
+        text-align: initial;
+        width: initial;
+      }
+      @include respond(phone) {
+        text-align: center;
+      }
+    }
+  }
+
   &__img {
     transform: translateX(10px);
     margin-bottom: 7.2rem;
     width: 234px;
     height: 177px;
-  }
-  & > .heading-quaternary {
-    text-align: center;
-    margin-bottom: 2.4rem;
-  }
-  & > .text-dark {
-    text-align: center;
-    width: 90%;
+
+    @include respond(tab-port) {
+      margin-bottom: initial;
+      margin-right: 3rem;
+    }
+    @include respond(phone) {
+      width: 200px;
+      height: 151px;
+      margin-bottom: 2.4rem;
+      transform: translateX(25px);
+    }
   }
 }
 
@@ -81,16 +155,32 @@
 
     @include bgDark;
 
+    @include respond(tab-port) {
+      padding-top: 5.6rem;
+    }
+
     & > .heading-secondary {
       margin-bottom: 3.2rem;
     }
     & > .text-light {
       text-align: center;
       width: 50%;
+
+      @include respond(tab-port) {
+        width: 85%;
+      }
     }
   }
   &__card-container {
     transform: translateY(-60%);
+
+    @include respond(tab-port) {
+      margin-left: 5.7rem;
+      margin-right: 5.7rem;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(-50%);
+    }
   }
 }
 
@@ -102,13 +192,40 @@
   background-color: $color-primary-cyan;
   height: 38rem;
 
-  & > img {
-    margin-bottom: 5.6rem;
+  @include respond(tab-port) {
+    flex-direction: initial;
+    height: 18rem;
+    justify-content: initial;
   }
 
-  & > .text-light {
-    margin-top: 2.4rem;
-    text-align: center;
-    width: 70%;
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include respond(tab-port) {
+      align-items: initial;
+    }
+    & > .text-light {
+      margin-top: 2.4rem;
+      text-align: center;
+      width: 70%;
+
+      @include respond(tab-port) {
+        text-align: initial;
+        width: 80%;
+      }
+    }
+  }
+
+  & > img {
+    margin-bottom: 5.6rem;
+
+    @include respond(tab-port) {
+      margin-bottom: initial;
+      margin-right: 5.5rem;
+      margin-left: 7rem;
+      height: 5.6rem;
+    }
   }
 }

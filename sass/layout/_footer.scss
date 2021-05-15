@@ -7,19 +7,49 @@
     align-items: center;
     height: 120px;
 
+    @include respond(tab-port) {
+      height: 34rem;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     & > .navigation-list {
       margin-left: 10.3rem;
+
+      @include respond(tab-port) {
+        margin-left: initial;
+        margin-bottom: 6.5rem;
+      }
+      &__item > a {
+        @include respond(tab-port) {
+          font-size: 1.2rem;
+        }
+      }
     }
   }
   &__logo {
     align-self: center;
     transform: translateY(-3px);
+
+    @include respond(tab-port) {
+      margin-bottom: 2.3rem;
+    }
+  }
+}
+.footer-navigation__link {
+  @include respond(tab-port) {
+    font-size: 12px;
   }
 }
 
 .social {
   justify-self: right;
   margin-left: auto;
+
+  @include respond(tab-port) {
+    justify-self: initial;
+    margin-left: initial;
+  }
 
   & > svg:hover {
     cursor: pointer;

@@ -1,22 +1,31 @@
 .u-margin-top {
-  margin-top: 4.3rem !important;
+  margin-top: 4.3rem;
 }
 .u-margin-bottom-s {
-  margin-bottom: 11.3rem !important;
+  margin-bottom: 11.3rem;
 }
 .u-margin-bottom-m {
-  margin-bottom: 20rem !important;
+  margin-bottom: 20rem;
+
+  @include respond(phone) {
+    margin-bottom: 12rem;
+  }
 }
 .u-margin-bottom-m-2 {
-  margin-bottom: 16.8rem !important;
+  margin-bottom: 16.8rem;
 }
 .u-margin-left-right-s {
-  margin-left: 8rem !important;
-  margin-right: 8rem !important;
+  margin-left: 8rem;
+  margin-right: 8rem;
+
+  @include respond(tab-port) {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
 }
 .u-margin-left-right-m {
-  margin-left: 16.5rem !important;
-  margin-right: 16.5rem !important;
+  margin-left: 16.5rem;
+  margin-right: 16.5rem;
 }
 
 .u-border-radius {

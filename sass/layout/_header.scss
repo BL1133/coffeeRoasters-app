@@ -2,8 +2,21 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 4.5rem;
+
+  @include respond(tab-port) {
+    margin-bottom: 5.3rem;
+  }
+
+  &__logo {
+    @include respond(phone) {
+      transform: scale(0.75) translateX(-15%);
+    }
+  }
 }
 .header-navigation {
+  @include respond(phone) {
+    display: none;
+  }
   &:hover {
     color: $color-primary-dark-gray-blue;
   }
