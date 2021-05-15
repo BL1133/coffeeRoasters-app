@@ -47,6 +47,11 @@
   border-radius: 8px;
   background-color: $color-light-cream-3;
 
+  &:hover {
+    background-color: #fdd6ba;
+    border-radius: 8px;
+  }
+
   .heading-quaternary {
     color: $color-primary-dark-gray-blue;
     margin: 3.2rem 0 2.4rem 2.8rem;

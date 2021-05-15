@@ -8,12 +8,12 @@
   border-style: hidden;
   cursor: pointer;
 
-  &:hover {
-    background-color: #66d2cf;
-  }
-
   &--complete {
     background-color: $color-primary-cyan;
+
+    &:hover {
+      background-color: #66d2cf;
+    }
   }
   &--incomplete {
     background-color: $color-light-cream-2;

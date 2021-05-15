@@ -48,6 +48,10 @@
 .submit-modal-btn {
   padding: 1.6rem 5.4rem 1.6rem 5.4rem;
   background-color: $color-primary-cyan;
+
+  &:hover {
+    background-color: #66d2cf;
+  }
 }
 .submit-modal-price {
   color: $color-primary-dark-gray-blue !important;

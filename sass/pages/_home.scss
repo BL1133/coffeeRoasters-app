@@ -18,6 +18,13 @@
     margin-bottom: 7rem;
   }
 }
+.hero-btn {
+  background-color: $color-primary-cyan;
+
+  &:hover {
+    background-color: #66d2cf;
+  }
+}
 // Products
 .products-section {
   display: flex;

@@ -21,7 +21,17 @@
   justify-self: right;
   margin-left: auto;
 
+  & > svg:hover {
+    cursor: pointer;
+    & > path {
+      fill: $color-orange;
+    }
+  }
+
   & > *:not(:last-child) {
     margin-right: 2.4rem;
   }
+}
+.footer-navigation:hover {
+  color: $color-light-cream-1;
 }

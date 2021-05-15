@@ -19,7 +19,7 @@ const Home = () => (
           curated artisan coffees from our best roasters delivered directly to
           your door, at your schedule.
         </p>
-        <Link to="#" className="btn-plan">
+        <Link to="#" className="btn-plan hero-btn">
           Create your plan
         </Link>
       </div>

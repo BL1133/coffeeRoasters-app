@@ -19,13 +19,13 @@ const Header = () => (
       </g>
     </svg>
     <ul className="navigation-list">
-      <li className="navigation-list__item heading-navigation">
+      <li className="navigation-list__item heading-navigation header-navigation">
         <Link to="/">Home</Link>
       </li>
-      <li className="navigation-list__item heading-navigation">
+      <li className="navigation-list__item heading-navigation header-navigation">
         <Link to="/about">About Us</Link>
       </li>
-      <li className="navigation-list__item heading-navigation">
+      <li className="navigation-list__item heading-navigation header-navigation">
         <Link to="/plan">Create your plan</Link>
       </li>
     </ul>
