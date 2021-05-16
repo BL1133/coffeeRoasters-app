@@ -130,9 +130,6 @@ const Home = () => (
         </div>
       </div>
     </section>
-    <div className="process__header">
-      <h3 className="heading-quaternary u-margin-left-right-m">How it works</h3>
-    </div>
     <Process home={true} />
   </main>
 );

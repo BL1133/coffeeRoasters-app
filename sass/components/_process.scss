@@ -1,17 +1,25 @@
 .process {
-  @include respond(tab-port) {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    margin-bottom: 7rem !important;
-    transform: translateY(-12rem);
-  }
   &__container {
     padding-top: 10rem;
   }
   &__items {
     padding-bottom: 10rem;
+
     @include respond(tab-port) {
       padding-bottom: 4.4rem;
+    }
+  }
+  &__heading {
+    color: $color-gray-red !important;
+    margin-bottom: 8rem;
+    white-space: nowrap;
+
+    @include respond(phone) {
+      font-size: 24px !important;
+      position: absolute;
+      left: 50%;
+      top: -8rem;
+      transform: translateX(-50%);
     }
   }
   &__line {
@@ -23,13 +31,17 @@
     position: absolute;
     transform: translateY(-50%);
     border: none;
+
+    @include respond(phone) {
+      display: none;
+    }
   }
-  &__header {
-    .heading-quaternary {
-      color: $color-gray-red !important;
-      margin-bottom: 8rem;
-      margin-left: 4rem;
-      transform: translateY(-12rem);
+  & > .btn-plan {
+    @include respond(phone) {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 8rem;
     }
   }
 }
@@ -37,8 +49,17 @@
   position: relative;
   padding-top: 6.7rem;
 
+  @include respond(phone) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   & > .heading-primary {
     margin-bottom: 3.8rem;
+    @include respond(phone) {
+      font-size: 72px;
+    }
   }
   & > .heading-secondary {
     margin-bottom: 4.2rem;
@@ -47,10 +68,20 @@
       font-size: 2.8rem;
       line-height: 32px;
     }
+    @include respond(phone) {
+      font-size: 28px;
+      text-align: center;
+    }
   }
   & > .text-dark,
   .text-light {
     width: 75%;
+
+    @include respond(phone) {
+      font-size: 15px;
+      line-height: 25px;
+      text-align: center;
+    }
   }
   @include processCircle(light);
 
@@ -60,4 +91,18 @@
 }
 .bg-dark {
   @include bgDark;
+}
+
+.process--home {
+  @include respond(tab-port) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 7rem !important;
+    transform: translateY(-12rem);
+  }
+  @include respond(phone) {
+    position: relative;
+    margin-top: -40%;
+    transform: translateY(-15%);
+  }
 }

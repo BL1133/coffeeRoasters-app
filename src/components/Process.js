@@ -6,7 +6,14 @@ const Process = ({ home }) => (
       home === false ? 'bg-dark process__container' : ''
     }`}
   >
-    <section className="process u-margin-bottom-m u-margin-left-right-s">
+    <section
+      className={`process ${
+        home === true ? 'process--home' : 'process--plan'
+      } u-margin-bottom-m u-margin-left-right-s`}
+    >
+      {home === true ? (
+        <h4 className="heading-quaternary process__heading">How it works</h4>
+      ) : null}
       <div className="process__items grid-3">
         <div
           className={`process-item ${
@@ -22,9 +29,7 @@ const Process = ({ home }) => (
                 : 'heading-secondary--light'
             }`}
           >
-            Pick your
-            <br />
-            coffee
+            Pick your coffee
           </h2>
           <p className={home === true ? 'text-dark' : 'text-light'}>
             Pick your coffee Select from our evolving range of artisan coffees.
@@ -47,8 +52,7 @@ const Process = ({ home }) => (
                 : 'heading-secondary--light'
             }`}
           >
-            Choose the <br />
-            frequency
+            Choose the frequency
           </h2>
           <p className={home === true ? 'text-dark' : 'text-light'}>
             Choose the frequency Customize your order frequency, quantity, even
@@ -69,8 +73,7 @@ const Process = ({ home }) => (
                 : 'heading-secondary--light'
             }`}
           >
-            Receive and <br />
-            enjoy!
+            Receive and enjoy!
           </h2>
           <p className={home === true ? 'text-dark' : 'text-light'}>
             Receive and enjoy! We ship your package within 48 hours, freshly

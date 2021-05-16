@@ -9,10 +9,32 @@
     background-position: center;
     height: 400px;
   }
+  @include respond(phone) {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(../../src/assets/home/desktop/image-hero-coffeepress.jpg);
+    background-position: 70% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+  }
 }
 .hero {
   height: 100%;
   padding-top: 13rem;
+
+  @include respond(tab-port) {
+    padding-top: 8rem;
+    margin-left: 5.8rem;
+  }
+
+  @include respond(phone) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: initial;
+    margin: initial;
+  }
 
   & > .heading-primary {
     width: 50%;
@@ -24,17 +46,26 @@
       line-height: 48px;
       margin-bottom: 2.4rem;
     }
+    @include respond(phone) {
+      width: initial;
+      text-align: center;
+      line-height: 40px;
+    }
   }
   & > .text-light {
     width: 36%;
     margin-bottom: 7rem;
+
     @include respond(tab-port) {
       width: 60%;
-      margin-bottom: 4rem;
+      margin-bottom: 7rem;
     }
-  }
-  @include respond(tab-port) {
-    padding-top: 10.4rem;
+    @include respond(phone) {
+      width: 90%;
+      text-align: center;
+      font-size: 15px;
+      line-height: 25px;
+    }
   }
 }
 .home-btn {
@@ -61,12 +92,14 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+
     @include respond(tab-port) {
       font-size: 9.6rem;
     }
 
     @include respond(phone) {
-      font-size: 6rem;
+      font-size: 5rem;
+      margin-bottom: 2rem;
     }
   }
 }
@@ -109,6 +142,7 @@
       }
       @include respond(phone) {
         text-align: center;
+        font-size: 24px;
       }
     }
     & > .text-dark {
@@ -158,9 +192,16 @@
     @include respond(tab-port) {
       padding-top: 5.6rem;
     }
+    @include respond(phone) {
+      height: 90rem;
+    }
 
     & > .heading-secondary {
       margin-bottom: 3.2rem;
+
+      @include respond(phone) {
+        font-size: 2.8rem;
+      }
     }
     & > .text-light {
       text-align: center;
@@ -181,6 +222,11 @@
       flex-direction: column;
       transform: translateY(-50%);
     }
+    @include respond(phone) {
+      margin-left: inherit;
+      margin-right: inherit;
+      transform: translateY(-48%);
+    }
   }
 }
 
@@ -197,6 +243,11 @@
     height: 18rem;
     justify-content: initial;
   }
+  @include respond(phone) {
+    height: 38rem;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   &__text {
     display: flex;
@@ -206,6 +257,9 @@
     @include respond(tab-port) {
       align-items: initial;
     }
+    @include respond(phone) {
+      align-items: center;
+    }
     & > .text-light {
       margin-top: 2.4rem;
       text-align: center;
@@ -214,6 +268,11 @@
       @include respond(tab-port) {
         text-align: initial;
         width: 80%;
+      }
+      @include respond(phone) {
+        text-align: center;
+        font-size: 16px;
+        line-height: 26px;
       }
     }
   }
@@ -226,6 +285,14 @@
       margin-right: 5.5rem;
       margin-left: 7rem;
       height: 5.6rem;
+    }
+    @include respond(phone) {
+      margin-left: initial;
+      margin-right: initial;
+      margin-bottom: 5.6rem;
+    }
+    @include respond(phone) {
+      height: 7.2rem;
     }
   }
 }

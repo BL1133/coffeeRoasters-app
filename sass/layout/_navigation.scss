@@ -3,5 +3,9 @@
 
   & > *:not(:last-child) {
     margin-right: 3.2rem;
+    @include respond(phone) {
+      margin-right: initial;
+      margin-bottom: 2.4rem;
+    }
   }
 }

@@ -51,6 +51,10 @@ ORDER: Base + typography > general layout + grid > page layout > components
       border: 2px solid $color-primary-dark-gray-blue;
       position: absolute;
       transform: translateY(-50%);
+
+      @include respond(phone) {
+        display: none;
+      }
     }
   }
   @if $theme == dark {

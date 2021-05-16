@@ -1,9 +1,10 @@
 .btn-plan {
   font-family: 'Fraunces', serif;
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 18px;
+  white-space: nowrap;
   color: $color-light-cream-1;
-  padding: 1.5rem 3rem 1.5rem 3rem;
+  padding: 15px 30px 15px 30px;
   border-radius: 5px;
   border-style: hidden;
   cursor: pointer;
