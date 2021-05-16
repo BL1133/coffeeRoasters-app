@@ -13,6 +13,10 @@
     & > .text-light {
       width: 40%;
       margin-top: 2.4rem;
+
+      @include respond(tab-port) {
+        width: 60%;
+      }
     }
   }
 }
@@ -20,12 +24,32 @@
 .commitment {
   display: flex;
 
+  @include respond(tab-port) {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-bottom: 35rem;
+  }
+
   & > img {
     margin-right: 12.5rem;
+
+    @include respond(tab-port) {
+      margin-right: 7rem;
+      width: 281px;
+      height: 470px;
+      object-fit: cover;
+    }
   }
   &__text {
     align-self: center;
     width: 50%;
+
+    @include respond(tab-port) {
+      width: initial;
+      align-self: initial;
+      font-size: 15px;
+      line-height: 25px;
+    }
     & > .heading-secondary {
       color: $color-primary-dark-gray-blue;
       margin-bottom: 3.2rem;
@@ -42,16 +66,46 @@
     padding-top: 8.8rem;
     height: 474px;
 
+    @include respond(tab-port) {
+      flex-direction: column-reverse;
+      justify-content: initial;
+      align-items: center;
+      transform: translateY(-15%);
+    }
+
     & > img {
-      transform: translateY(-40%);
+      // transform: translateY(-40%);
       width: 445px;
       height: 474px;
+
+      @include respond(tab-port) {
+        width: 570px;
+        height: 330px;
+        margin-bottom: 6.4rem;
+        object-fit: cover;
+        object-position: bottom;
+      }
     }
   }
   &__text {
     width: 50%;
+
+    @include respond(tab-port) {
+      text-align: center;
+      width: 80%;
+    }
     & > .heading-secondary {
       margin-bottom: 3.2rem;
+      white-space: nowrap;
+
+      @include respond(tab-port) {
+      }
+    }
+    & > .text-light {
+      @include respond(tab-port) {
+        line-height: 25px;
+        font-size: 15px;
+      }
     }
   }
 }
