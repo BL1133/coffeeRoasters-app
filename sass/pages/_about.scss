@@ -127,8 +127,8 @@
     width: 50%;
 
     @include respond(tab-port) {
-      text-align: center;
       width: 80%;
+      text-align: center;
     }
     @include respond(phone) {
       width: 100%;
@@ -179,17 +179,16 @@
     }
     & > img {
       margin-bottom: 4.6rem;
-
-      @include respond(phone) {
-      }
     }
     & > .heading-tertiary {
       margin-bottom: 2.4rem;
     }
     & > .text-dark {
-      text-align: center;
-      font-size: 16px;
-      line-height: 26px;
+      @include respond(phone) {
+        text-align: center;
+        font-size: 16px;
+        line-height: 26px;
+      }
     }
   }
   & > .grid-3 {

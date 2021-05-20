@@ -6,6 +6,9 @@
     padding-bottom: 10rem;
 
     @include respond(tab-port) {
+      padding-bottom: 8rem;
+    }
+    @include respond(phone) {
       padding-bottom: 4.4rem;
     }
   }
@@ -76,6 +79,10 @@
   & > .text-dark,
   .text-light {
     width: 75%;
+
+    @include respond(tab-port) {
+      width: 86%;
+    }
 
     @include respond(phone) {
       font-size: 15px;

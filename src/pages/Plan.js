@@ -200,10 +200,14 @@ function Plan() {
               </p>
             </div>
           </section>
+          <section className="plan__process">
+            <Process home={false} />
+          </section>
+          <section className="plan__form">
+            <Form />
+            <SubmitModal isOpen={state.submitModal} />
+          </section>
         </main>
-        <Process home={false} />
-        <Form />
-        <SubmitModal isOpen={state.submitModal} />
       </DispatchContext.Provider>
     </StateContext.Provider>
   );

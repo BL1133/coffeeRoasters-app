@@ -9,6 +9,19 @@
   padding-left: 6.4rem;
   padding-right: 6.4rem;
   margin-bottom: 4rem;
+
+  @include respond(phone) {
+    padding: 3.2rem 2.5rem 3.2rem 2.5rem;
+    height: 338px;
+    justify-content: center;
+    margin-bottom: 5.6rem;
+  }
+  & > .heading-quaternary {
+    @include respond(phone) {
+      font-size: 24px;
+      line-height: 40px;
+    }
+  }
 }
 .summary-heading {
   font-size: 1.6rem;
@@ -17,6 +30,10 @@
   font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 10px;
+
+  @include respond(phone) {
+    font-size: 16px;
+  }
 }
 .summary-selection {
   color: $color-primary-cyan;
