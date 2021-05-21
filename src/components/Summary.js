@@ -19,17 +19,29 @@ function Summary({ isModal }) {
             </span>
           );
         }
-        return <span style={line}> </span>;
+        return (
+          <span className="summary-line" style={line}>
+            {' '}
+          </span>
+        );
       case 2:
         if (appState.sum[1] !== '') {
           return <span className="summary-selection">{appState.sum[1]}</span>;
         }
-        return <span style={line}> </span>;
+        return (
+          <span className="summary-line" style={line}>
+            {' '}
+          </span>
+        );
       case 3:
         if (appState.sum[2] !== '') {
           return <span className="summary-selection">{appState.sum[2]}</span>;
         }
-        return <span style={line}> </span>;
+        return (
+          <span className="summary-line" style={line}>
+            {' '}
+          </span>
+        );
       case 4:
         return <span className="summary-selection">{appState.sum[3]}</span>;
 
@@ -37,7 +49,11 @@ function Summary({ isModal }) {
         if (appState.sum[4] !== '') {
           return <span className="summary-selection">{appState.sum[4]}</span>;
         }
-        return <span style={line}> </span>;
+        return (
+          <span className="summary-line" style={line}>
+            {' '}
+          </span>
+        );
       default:
         break;
     }
