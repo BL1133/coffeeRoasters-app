@@ -6,6 +6,12 @@
     margin-right: 4rem !important;
     margin-bottom: 200px !important;
   }
+  @media only screen and (min-width: 901px) and (max-width: 1300px) {
+    margin-left: 8rem !important;
+  }
+  @media only screen and (min-width: 901px) and (max-width: 1300px) {
+    margin-left: 16.5rem !important;
+  }
   @include respond(phone) {
     margin-left: 2.4rem !important;
     margin-right: 2.4rem !important;
@@ -17,6 +23,9 @@
   @include respond(tab-port) {
     display: initial;
   }
+}
+.form-group {
+  position: relative;
 }
 .form-question {
   margin-bottom: 8.8rem;
@@ -43,6 +52,10 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 5.6rem;
+
+  @media only screen and (min-width: 1500px) {
+    width: 90rem;
+  }
 }
 .btn-accordion {
   width: 4.5rem;
@@ -54,7 +67,6 @@
 }
 .input-container {
   display: flex;
-  flex-grow: 1;
 
   @include respond(tab-port) {
     width: 100%;
@@ -74,10 +86,22 @@
   border-radius: 8px;
   background-color: $color-light-cream-3;
 
+  @media only screen and (min-width: 901px) and (max-width: 1300px) {
+    width: 100%;
+  }
+  @include respond(tab-port) {
+    min-width: 21rem;
+    max-width: 26rem;
+    flex-grow: 1;
+  }
+
   @include respond(phone) {
     width: 100%;
     height: 140px;
     margin-bottom: 1.6rem;
+    min-width: initial;
+    max-width: initial;
+    flex-grow: initial;
   }
 
   &:hover {

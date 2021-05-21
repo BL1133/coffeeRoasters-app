@@ -1,6 +1,9 @@
 .form-nav-container {
   margin-right: 12.5rem;
 
+  @media only screen and (min-width: 901px) and (max-width: 1070px) {
+    display: none;
+  }
   @include respond(tab-port) {
     display: none;
   }

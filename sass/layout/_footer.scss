@@ -6,7 +6,10 @@
     display: flex;
     align-items: center;
     height: 120px;
-
+    @media only screen and (min-width: 901px) and (max-width: 1070px) {
+      margin-left: 4rem;
+      margin-right: 4rem;
+    }
     @include respond(tab-port) {
       height: 34rem;
       flex-direction: column;
@@ -19,7 +22,9 @@
 
     & > .navigation-list {
       margin-left: 10.3rem;
-
+      @media only screen and (min-width: 901px) and (max-width: 1070px) {
+        margin-left: 6rem;
+      }
       @include respond(tab-port) {
         margin-left: initial;
         margin-bottom: 6.5rem;
