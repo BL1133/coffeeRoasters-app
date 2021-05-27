@@ -1,10 +1,13 @@
 .header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 4.5rem;
+  padding-bottom: 4.5rem;
 
   @include respond(tab-port) {
-    margin-bottom: 5.3rem;
+    padding-bottom: 5.3rem;
+  }
+  @include respond(phone) {
+    display: none;
   }
 
   &__logo {
@@ -13,12 +16,97 @@
     }
   }
 }
+.header-container {
+  display: flex;
+  flex-direction: column;
+
+  @include respond(phone) {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+}
 .header-navigation {
   transform: translateY(4px);
-  @include respond(phone) {
-    display: none;
-  }
+
   &:hover {
     color: $color-primary-dark-gray-blue;
+  }
+}
+// Mobile
+
+.header-mobile {
+  display: none;
+
+  @include respond(phone) {
+    display: initial;
+    padding: 4.3rem 2.4rem 4.3rem 2.4rem;
+    background-color: $color-light-cream-1;
+  }
+  &__navigation {
+    @include respond(phone) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+.nav-menu {
+  &--hamburger,
+  &--close {
+    display: none;
+  }
+  &--hamburger {
+    @include respond(phone) {
+      display: initial;
+      align-self: center;
+    }
+  }
+  &--close {
+    @include respond(phone) {
+      display: initial;
+      align-self: center;
+    }
+  }
+}
+.menu-overlay {
+  display: none;
+  position: relative;
+
+  @include respond(phone) {
+    display: initial;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 96px;
+    left: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(254, 252, 246, 1) 0 40%,
+      rgba(254, 252, 246, 0.95) 50%,
+      rgba(254, 252, 246, 0.4) 80%,
+      rgba(254, 252, 246, 0.2) 100%
+    );
+  }
+  &__line {
+    height: 1px;
+    width: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: #eeebe6;
+    border: none;
+  }
+}
+.overlay-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+
+  &__heading {
+    font-size: 24px;
+  }
+  & > li {
+    margin-bottom: 4rem;
   }
 }
