@@ -39,6 +39,9 @@
 .commitment {
   display: flex;
 
+  @media only screen and (max-width: 1040px) {
+    margin-left: 8rem;
+  }
   @include respond(tab-port) {
     margin-left: 4rem;
     margin-right: 4rem;
@@ -54,6 +57,9 @@
   & > img {
     margin-right: 12.5rem;
 
+    @media only screen and (max-width: 1040px) {
+      margin-right: 8rem;
+    }
     @include respond(tab-port) {
       margin-right: 7rem;
       width: 281px;
@@ -107,25 +113,33 @@
     }
 
     & > img {
+      transform: translateY(-40%);
       width: 445px;
       height: 474px;
-
+      @media only screen and (max-width: 1040px) {
+        width: 380px;
+        height: 440px;
+      }
       @include respond(tab-port) {
-        width: 570px;
-        height: 330px;
+        width: 57rem;
+        height: 33rem;
         margin-bottom: 6.4rem;
         object-fit: cover;
         object-position: bottom;
+        transform: initial;
       }
       @include respond(phone) {
-        width: 279px;
-        height: 156px;
+        width: 33rem;
+        height: 20rem;
       }
     }
   }
   &__text {
     width: 50%;
 
+    @media only screen and (min-width: 900px) {
+      padding-right: 7rem;
+    }
     @include respond(tab-port) {
       width: 80%;
       text-align: center;
