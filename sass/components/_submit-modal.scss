@@ -1,5 +1,6 @@
 .ReactModal__Overlay {
   background-color: rgba(0, 0, 0, 0.6) !important;
+  z-index: 1000;
 }
 .submit-modal-content {
   position: absolute;
@@ -7,10 +8,13 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 540px;
-  height: 597px;
   background-color: #fefcf7;
   border: none;
   border-radius: 12px;
+
+  @include respond(phone) {
+    width: 90%;
+  }
 
   &__container {
     padding: 6.3rem 5.6rem 5.6rem 5.6rem;
@@ -18,6 +22,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @include respond(phone) {
+      padding: 4rem 2.4rem 2.4rem 2.4rem;
+    }
   }
 }
 .submit-modal {
@@ -30,23 +38,59 @@
     @include bgDark;
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;
+
+    @include respond(phone) {
+      padding-left: 2.4rem;
+    }
+    @media only screen and (max-height: 660px) {
+      font-size: 3.7rem !important;
+    }
   }
   &__summary {
     color: $color-light-gray !important;
     line-height: 40px !important;
+    font-size: 24px !important;
+
+    @media only screen and (max-height: 660px) {
+      font-size: 20px !important;
+      line-height: 30px !important;
+    }
   }
   &__text {
     color: $color-primary-dark-gray-blue;
     margin-top: 7px;
     margin-bottom: 4.7rem;
+
+    @include respond(phone) {
+      font-size: 15px;
+      line-height: 25px;
+    }
   }
   &__price-container {
     display: flex;
     align-items: center;
+
+    @include respond(phone) {
+      display: none;
+    }
+
+    &--mobile {
+      display: none;
+
+      @include respond(phone) {
+        display: initial;
+        width: 100%;
+      }
+    }
   }
 }
 .submit-modal-btn {
   padding: 1.6rem 5.4rem 1.6rem 5.4rem !important;
+
+  &--mobile {
+    display: block;
+    text-align: center;
+  }
 }
 .submit-modal-price {
   color: $color-primary-dark-gray-blue !important;

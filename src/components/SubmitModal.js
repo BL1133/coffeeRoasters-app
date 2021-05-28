@@ -67,6 +67,15 @@ function SubmitModal(props) {
             Checkout
           </Link>
         </div>
+        <div className="submit-modal__price-container--mobile">
+          <Link
+            onClick={handleClose}
+            to="#"
+            className="btn-plan submit-modal-btn--mobile"
+          >
+            Checkout - {`$ ${appState.submitModal ? costPerMonth() : null}/ mo`}
+          </Link>
+        </div>
       </div>
     </ReactModal>
   );

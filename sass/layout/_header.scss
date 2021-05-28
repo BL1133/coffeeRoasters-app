@@ -16,16 +16,6 @@
     }
   }
 }
-.header-container {
-  display: flex;
-  flex-direction: column;
-
-  @include respond(phone) {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-}
 .header-navigation {
   transform: translateY(4px);
 
@@ -34,6 +24,19 @@
   }
 }
 // Mobile
+.header-container {
+  display: flex;
+  flex-direction: column;
+
+  @include respond(phone) {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  &--fixed {
+    position: initial;
+  }
+}
 
 .header-mobile {
   display: none;

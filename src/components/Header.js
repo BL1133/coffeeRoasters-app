@@ -1,8 +1,13 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const history = useHistory();
+
+  useEffect(() => {
+    return history.listen(() => setIsMenuOpen(false));
+  }, [history]);
 
   return (
     <div className="header-container">
@@ -65,7 +70,7 @@ function Header() {
                 <path
                   d="M12.657.843a1.5 1.5 0 010 2.121L9.12 6.5l3.536 3.536a1.5 1.5 0 11-2.121 2.12L7 8.622l-3.536 3.536a1.5 1.5 0 11-2.12-2.121L4.877 6.5 1.343 2.964A1.5 1.5 0 113.464.844L7 4.377 10.536.843a1.5 1.5 0 012.12 0z"
                   fill="#333D4B"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 />
               </svg>
             </button>
@@ -128,7 +133,7 @@ function Header() {
                 <path
                   d="M14.5 12a1.5 1.5 0 010 3h-13a1.5 1.5 0 010-3h13zm0-6a1.5 1.5 0 010 3h-13a1.5 1.5 0 010-3h13zm0-6a1.5 1.5 0 010 3h-13a1.5 1.5 0 010-3h13z"
                   fill="#333D4B"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 />
               </svg>
             </button>
