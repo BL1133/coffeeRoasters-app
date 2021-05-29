@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import Summary from '../components/Summary';
 import ReactModal from 'react-modal';
-import { Link } from 'react-router-dom';
 import numeral from 'numeral';
 import { StateContext } from '../pages/Plan';
 import { DispatchContext } from '../pages/Plan';
@@ -63,18 +62,17 @@ function SubmitModal(props) {
           <h3 className="heading-tertiary submit-modal-price">
             {`$ ${appState.submitModal ? costPerMonth() : null}/ mo`}
           </h3>
-          <Link to="#" className="btn-plan submit-modal-btn">
+          <button onClick={handleClose} className="btn-plan submit-modal-btn">
             Checkout
-          </Link>
+          </button>
         </div>
         <div className="submit-modal__price-container--mobile">
-          <Link
+          <button
             onClick={handleClose}
-            to="#"
             className="btn-plan submit-modal-btn--mobile"
           >
             Checkout - {`$ ${appState.submitModal ? costPerMonth() : null}/ mo`}
-          </Link>
+          </button>
         </div>
       </div>
     </ReactModal>

@@ -92,7 +92,9 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-
+    @media screen and (min-width: 901px) and (max-width: 1050px) {
+      font-size: 12rem;
+    }
     @include respond(tab-port) {
       font-size: 9.6rem;
     }
@@ -215,6 +217,12 @@
   &__card-container {
     transform: translateY(-60%);
 
+    @media screen and (min-width: 900px) and (max-width: 1000px) {
+      gap: 2.5rem !important;
+      grid-gap: 2.5rem !important;
+      margin-left: 5rem;
+      margin-right: 5rem;
+    }
     @include respond(tab-port) {
       margin-left: 5.7rem;
       margin-right: 5.7rem;
