@@ -110,12 +110,15 @@
     @include respond(phone) {
       height: 509px;
       transform: translateY(-7%);
+      padding-top: initial;
+      overflow: visible;
     }
 
     & > img {
       transform: translateY(-40%);
       width: 445px;
       height: 474px;
+
       @media only screen and (max-width: 1040px) {
         width: 380px;
         height: 440px;
@@ -129,8 +132,8 @@
         transform: initial;
       }
       @include respond(phone) {
-        width: 33rem;
-        height: 20rem;
+        width: 28rem;
+        height: 15rem;
       }
     }
   }
