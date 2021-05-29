@@ -104,9 +104,11 @@
     flex-grow: initial;
   }
 
-  &:hover {
-    background-color: #fdd6ba;
-    border-radius: 8px;
+  @media only screen and (min-width: 601px) {
+    &:hover {
+      background-color: #fdd6ba;
+      border-radius: 8px;
+    }
   }
 
   .heading-quaternary {
