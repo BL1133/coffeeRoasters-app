@@ -11,6 +11,7 @@
   background-color: #fefcf7;
   border: none;
   border-radius: 12px;
+  outline: none !important;
 
   @include respond(phone) {
     width: 90%;
